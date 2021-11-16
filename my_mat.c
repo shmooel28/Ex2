@@ -13,7 +13,6 @@ void receivingMat(int mat[][N])
     {
         for (j = 0; j < N; j++)
         {
-            printf("enter value for %d, %d", i, j);
             scanf("%d", &mat[i][j]);
         }
     }
@@ -63,7 +62,7 @@ int shortPath(int mat[][N])
             }
         }
     }
-    if (dist[i][j]==0)
+    if (dist[i][j]==0||i==j)
     {
         return -1;
     }
