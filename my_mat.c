@@ -21,7 +21,7 @@ int checkAdjacent(int mat[][N])
     path_len(dist,mat);
     int i, j;
     scanf("%d%d", &i, &j);
-    if (dist[i][j] == 0)
+    if (dist[i][j] == 0 || i==j)
         printf("False\n");
     else
         printf("True\n");
@@ -33,8 +33,6 @@ int shortPath(int mat[][N])
     path_len(dist,mat);
     int i, j;
     scanf("%d%d", &i, &j);
-    int l, k, g;
-
     if (dist[i][j]==MAX||i==j)
     {
         printf("-1\n");
@@ -62,6 +60,7 @@ int path_len(int dist[][N], int mat[][N])
                     dist[s][t] = mat[s][t];
         }
     }
+    int l, k, g;
     for (k = 0; k < N; k++)
     {
         for (l = 0; l < N; l++)
