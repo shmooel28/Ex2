@@ -22,9 +22,9 @@ int checkAdjacent(int mat[][N])
     int i, j;
     scanf("%d%d", &i, &j);
     if (mat[i][j] == 0)
-        printf("False");
+        printf("False\n");
     else
-        printf("True");
+        printf("True\n");
     return 1;
 }
 int shortPath(int mat[][N])
@@ -62,10 +62,9 @@ int shortPath(int mat[][N])
             }
         }
     }
-    if (dist[i][j]==0||i==j)
+    if (dist[i][j]==MAX||i==j)
     {
-        return -1;
+        printf("-1\n");
     }
-    
-    return dist[i][j];
+    else{printf("%d\n",dist[i][j]);}
 }
