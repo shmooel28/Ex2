@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include "my_mat.h"
-#define TRUE 1
-#define FALSE 0
 #define N 10
 #define MAX 20000000
 
-void receivingMat(int mat[][N])
+int receivingMat(int mat[][N])
 {
-    //int mat[N][N];
     int i, j;
     for (i = 0; i < N; i++)
     {
@@ -16,12 +13,15 @@ void receivingMat(int mat[][N])
             scanf("%d", &mat[i][j]);
         }
     }
+    return 1;
 }
 int checkAdjacent(int mat[][N])
 {
+    int dist[N][N];
+    path_len(dist,mat);
     int i, j;
     scanf("%d%d", &i, &j);
-    if (mat[i][j] == 0)
+    if (dist[i][j] == 0)
         printf("False\n");
     else
         printf("True\n");
@@ -30,24 +30,7 @@ int checkAdjacent(int mat[][N])
 int shortPath(int mat[][N])
 {
     int dist[N][N];
-    int s,t;
-    for (s = 0; s < N; s++)
-    {
-        for (t = 0; t < N; t++)
-        {
-            if (s==t) 
-            {
-                dist[s][t] = 0;
-            }
-            else
-                if (mat[s][t]==0)
-                {
-                    dist[s][t] = MAX;
-                }
-                else
-                    dist[s][t] = mat[s][t];
-        }
-    }
+    path_len(dist,mat);
     int i, j;
     scanf("%d%d", &i, &j);
     int l, k, g;
@@ -67,4 +50,27 @@ int shortPath(int mat[][N])
         printf("-1\n");
     }
     else{printf("%d\n",dist[i][j]);}
+    return 1;
+}
+int path_len(int dist[][N], int mat[][N])
+{
+    int s,t;
+    for (s = 0; s < N; s++)
+    {
+        for (t = 0; t < N; t++)
+        {
+            if (s==t) 
+            {
+                dist[s][t] = 0;
+            }
+            else
+                if (mat[s][t]==0)
+                {
+                    dist[s][t] = MAX;
+                }
+                else
+                    dist[s][t] = mat[s][t];
+        }
+    }
+    return 1;
 }
