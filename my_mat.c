@@ -42,22 +42,22 @@ int shortPath(int mat[][N])
 }
 int path_len(int dist[][N], int mat[][N])
 {
-    int s,t;
-    for (s = 0; s < N; s++)
+    int i,j;
+    for (i = 0; i < N; i++)
     {
-        for (t = 0; t < N; t++)
+        for (j = 0; j < N; j++)
         {
-            if (s==t) 
+            if (i==j) 
             {
-                dist[s][t] = 0;
+                dist[i][j] = 0;
             }
             else
-                if (mat[s][t]==0)
+                if (mat[i][j]==0)
                 {
-                    dist[s][t] = MAX;
+                    dist[i][j] = MAX;
                 }
                 else
-                    dist[s][t] = mat[s][t];
+                    dist[i][j] = mat[i][j];
         }
     }
     int l, k, g;
