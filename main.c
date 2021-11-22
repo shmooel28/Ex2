@@ -11,16 +11,13 @@ int main()
         if (c == 'A')
         {
             receivingMat(mat);
-            printf("A");
         }
         if (c == 'B')
         {
-            printf("B");
             checkAdjacent(mat);
         }
         if (c == 'C')
         {
-            printf("C");
             shortPath(mat);
         }
         scanf("%c",&c);
