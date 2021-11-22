@@ -34,17 +34,7 @@ int shortPath(int mat[][N])
     int i, j;
     scanf("%d%d", &i, &j);
     int l, k, g;
-    for (k = 0; k < N; k++)
-    {
-        for (l = 0; l < N; l++)
-        {
-            for (g = 0; g < N; g++)
-            {
-                if (dist[l][g] > dist[l][k]+dist[k][g])
-                    dist[l][g] = dist[l][k]+dist[k][g];
-            }
-        }
-    }
+
     if (dist[i][j]==MAX||i==j)
     {
         printf("-1\n");
@@ -70,6 +60,17 @@ int path_len(int dist[][N], int mat[][N])
                 }
                 else
                     dist[s][t] = mat[s][t];
+        }
+    }
+    for (k = 0; k < N; k++)
+    {
+        for (l = 0; l < N; l++)
+        {
+            for (g = 0; g < N; g++)
+            {
+                if (dist[l][g] > dist[l][k]+dist[k][g])
+                    dist[l][g] = dist[l][k]+dist[k][g];
+            }
         }
     }
     return 1;
