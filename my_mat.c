@@ -21,7 +21,7 @@ int checkAdjacent(int mat[][N])
     path_len(dist,mat);
     int i, j;
     scanf("%d%d", &i, &j);
-    if (dist[i][j] == 0 || i==j)
+    if (dist[i][j] == MAX || i==j)
         printf("False\n");
     else
         printf("True\n");
